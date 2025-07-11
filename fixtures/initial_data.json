@@ -1,0 +1,172 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$test123$test123",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Администратор",
+      "last_name": "Системы",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-01-01T00:00:00Z",
+      "phone": "+7 (999) 123-45-67",
+      "address": "г. Москва, ул. Примерная, д. 1",
+      "is_delivery_man": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$test123$test123",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "courier1",
+      "first_name": "Иван",
+      "last_name": "Курьер",
+      "email": "courier1@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-01T00:00:00Z",
+      "phone": "+7 (999) 234-56-78",
+      "address": "г. Москва, ул. Курьерская, д. 2",
+      "is_delivery_man": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "restaurants.restaurant",
+    "pk": 1,
+    "fields": {
+      "name": "Пиццерия \"У Итальянца\"",
+      "description": "Аутентичная итальянская пицца и паста",
+      "address": "г. Москва, ул. Итальянская, д. 10",
+      "phone": "+7 (495) 123-45-67",
+      "rating": "4.50",
+      "delivery_time": 30,
+      "min_order": "500.00",
+      "is_active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "restaurants.restaurant",
+    "pk": 2,
+    "fields": {
+      "name": "Суши-бар \"Сакура\"",
+      "description": "Свежие суши и роллы",
+      "address": "г. Москва, ул. Японская, д. 15",
+      "phone": "+7 (495) 234-56-78",
+      "rating": "4.30",
+      "delivery_time": 25,
+      "min_order": "800.00",
+      "is_active": true,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "restaurants.category",
+    "pk": 1,
+    "fields": {
+      "name": "Пицца",
+      "description": "Классическая итальянская пицца",
+      "restaurant": 1
+    }
+  },
+  {
+    "model": "restaurants.category",
+    "pk": 2,
+    "fields": {
+      "name": "Паста",
+      "description": "Итальянская паста",
+      "restaurant": 1
+    }
+  },
+  {
+    "model": "restaurants.category",
+    "pk": 3,
+    "fields": {
+      "name": "Суши",
+      "description": "Классические суши",
+      "restaurant": 2
+    }
+  },
+  {
+    "model": "restaurants.category",
+    "pk": 4,
+    "fields": {
+      "name": "Роллы",
+      "description": "Японские роллы",
+      "restaurant": 2
+    }
+  },
+  {
+    "model": "restaurants.dish",
+    "pk": 1,
+    "fields": {
+      "name": "Маргарита",
+      "description": "Классическая пицца с томатами и моцареллой",
+      "price": "650.00",
+      "image": "",
+      "category": 1,
+      "is_available": true,
+      "preparation_time": 15,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "restaurants.dish",
+    "pk": 2,
+    "fields": {
+      "name": "Пепперони",
+      "description": "Пицца с пепперони и моцареллой",
+      "price": "750.00",
+      "image": "",
+      "category": 1,
+      "is_available": true,
+      "preparation_time": 15,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "restaurants.dish",
+    "pk": 3,
+    "fields": {
+      "name": "Карбонара",
+      "description": "Паста с беконом, яйцом и пармезаном",
+      "price": "450.00",
+      "image": "",
+      "category": 2,
+      "is_available": true,
+      "preparation_time": 12,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "restaurants.dish",
+    "pk": 4,
+    "fields": {
+      "name": "Филадельфия",
+      "description": "Ролл с лососем и сливочным сыром",
+      "price": "350.00",
+      "image": "",
+      "category": 4,
+      "is_available": true,
+      "preparation_time": 10,
+      "created_at": "2024-01-01T00:00:00Z",
+      "updated_at": "2024-01-01T00:00:00Z"
+    }
+  }
+] 
