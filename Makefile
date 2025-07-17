@@ -1,6 +1,6 @@
-# Makefile для LogiFlow (Django + Poetry)
+# Makefile для LogiFlow (Django + Poetry + Docker)
 
-.PHONY: install migrate run test test-cov shell superuser docs
+.PHONY: install migrate run test test-cov shell superuser docs build up down logs d-shell d-migrate d-superuser
 
 install:
 	poetry install
@@ -24,4 +24,29 @@ test-cov:
 	poetry run pytest --cov=deliveries --cov=users --cov-report=html
 
 docs:
-	open docs/README.md || xdg-open docs/README.md || start docs/README.md 
+	open docs/README.md || xdg-open docs/README.md || start docs/README.md
+
+# Docker
+build:
+	docker compose build
+
+up:
+	docker compose up -d
+
+down:
+	docker compose down
+
+logs:
+	docker compose logs -f
+
+# Docker: команды внутри контейнера web
+# Пример: make d-shell
+
+d-shell:
+	docker compose exec web poetry run python manage.py shell
+
+d-migrate:
+	docker compose exec web poetry run python manage.py migrate
+
+d-superuser:
+	docker compose exec web poetry run python manage.py createsuperuser 
