@@ -1,0 +1,410 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiFlow - Отчет по доставкам</title>
+    
+    <!-- Material UI CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #181C1F;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background-color: #23272A;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn:hover {
+            background-color: #1976D2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .filters {
+            background-color: #23272A;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .filters h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .filter-group label {
+            font-size: 0.875rem;
+            color: #B0BEC5;
+            font-weight: 500;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 0.5rem;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            background-color: #181C1F;
+            color: #ffffff;
+            font-size: 0.875rem;
+        }
+        
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+        
+        .chart-section {
+            background-color: #23272A;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .chart-section h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .chart-container {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #181C1F;
+            border-radius: 8px;
+            color: #B0BEC5;
+        }
+        
+        .table-section {
+            background-color: #23272A;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .table-section h3 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #181C1F;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .delivery-table th {
+            background-color: #374151;
+            color: #ffffff;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .delivery-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #374151;
+            font-size: 0.875rem;
+        }
+        
+        .delivery-table tr:hover {
+            background-color: #2A2F35;
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 2rem;
+            color: #B0BEC5;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: #23272A;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2196F3;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #B0BEC5;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Отчет по доставкам</h1>
+        <div class="header-actions">
+            <a href="#" class="btn">
+                <span class="material-icons">settings</span>
+                Настройки
+            </a>
+            <a href="#" class="btn">
+                <span class="material-icons">account_circle</span>
+                {{ user.username }}
+            </a>
+            <a href="{% url 'logout' %}" class="btn">
+                <span class="material-icons">logout</span>
+                Выход
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Статистика -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">{{ deliveries.count }}</div>
+                <div class="stat-label">Всего доставок</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ services.count }}</div>
+                <div class="stat-label">Типов услуг</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ chart_data|length }}</div>
+                <div class="stat-label">Дней с доставками</div>
+            </div>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filters">
+            <h3>Фильтры</h3>
+            <form method="get" class="filter-row">
+                <div class="filter-group">
+                    <label>Дата от</label>
+                    <input type="date" name="date_from" value="{{ filters.date_from|default:'' }}">
+                </div>
+                <div class="filter-group">
+                    <label>Дата до</label>
+                    <input type="date" name="date_to" value="{{ filters.date_to|default:'' }}">
+                </div>
+                <div class="filter-group">
+                    <label>Тип доставки</label>
+                    <select name="service">
+                        <option value="">Все услуги</option>
+                        {% for service in services %}
+                        <option value="{{ service.id }}" {% if filters.service == service.id|stringformat:"s" %}selected{% endif %}>
+                            {{ service.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Тип груза</label>
+                    <select name="cargo_type">
+                        <option value="">Все грузы</option>
+                        {% for cargo in cargo_types %}
+                        <option value="{{ cargo.id }}" {% if filters.cargo_type == cargo.id|stringformat:"s" %}selected{% endif %}>
+                            {{ cargo.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Статус</label>
+                    <select name="status">
+                        <option value="">Все статусы</option>
+                        {% for status in statuses %}
+                        <option value="{{ status.id }}" {% if filters.status == status.id|stringformat:"s" %}selected{% endif %}>
+                            {{ status.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button type="submit" class="btn">Применить</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- График -->
+        <div class="chart-section">
+            <h3>Количество доставок</h3>
+            <div class="chart-container">
+                {% if chart_data %}
+                    <div id="chart"></div>
+                {% else %}
+                    <div>Нет данных для отображения</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Таблица -->
+        <div class="table-section">
+            <h3>Таблица доставок</h3>
+            {% if deliveries %}
+                <table class="delivery-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Дата доставки</th>
+                            <th>Модель ТС</th>
+                            <th>Услуга</th>
+                            <th>Дистанция (км)</th>
+                            <th>Статус</th>
+                            <th>Тип груза</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for delivery in deliveries %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ delivery.delivery_time|date:"d.m.Y" }}</td>
+                            <td>{{ delivery.transport_model.name|default:"-" }}</td>
+                            <td>{{ delivery.service.name|default:"-" }}</td>
+                            <td>{{ delivery.distance_km|default:"-" }}</td>
+                            <td>{{ delivery.status.name|default:"-" }}</td>
+                            <td>{{ delivery.cargo_type.name|default:"-" }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="no-data">
+                    <p>Нет данных для отображения</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Chart.js для графика -->
+    {% if chart_data %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.createElement('canvas');
+        ctx.width = 800;
+        ctx.height = 300;
+        document.getElementById('chart').appendChild(ctx);
+        
+        const chartData = {{ chart_data|safe }};
+        
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: chartData.map(item => item.date),
+                datasets: [{
+                    label: 'Количество доставок',
+                    data: chartData.map(item => item.count),
+                    borderColor: '#2196F3',
+                    backgroundColor: 'rgba(33, 150, 243, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#B0BEC5'
+                        },
+                        grid: {
+                            color: '#374151'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#B0BEC5'
+                        },
+                        grid: {
+                            color: '#374151'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    {% endif %}
+</body>
+</html> 
