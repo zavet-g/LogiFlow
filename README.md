@@ -9,6 +9,8 @@
 - **Админка**: Django Admin с кастомизированными справочниками
 - **Frontend**: Django Templates с Material Design
 - **Графики**: Chart.js
+- **Управление зависимостями**: Poetry
+- **Тестирование**: pytest + pytest-django + factory-boy
 
 ## 📋 Функциональность
 
@@ -50,6 +52,10 @@ venv\Scripts\activate  # Windows
 
 ### 3. Установка зависимостей
 ```bash
+# Используя Poetry (рекомендуется)
+poetry install
+
+# Или используя pip
 pip install -r requirements.txt
 ```
 
@@ -74,10 +80,32 @@ python3 manage.py load_sample_data
 
 ### 7. Запуск сервера
 ```bash
+# Используя Poetry
+poetry run python manage.py runserver
+
+# Или напрямую
 python3 manage.py runserver
 ```
 
 Веб-приложение будет доступно по адресу: http://localhost:8000
+
+### 8. Запуск тестов
+```bash
+# Все тесты
+poetry run pytest
+
+# Тесты с покрытием
+poetry run pytest --cov=deliveries --cov-report=html
+
+# Конкретный тест
+poetry run pytest deliveries/test_models.py::TransportModelTest::test_create_transport_model -v
+
+# Только модульные тесты
+poetry run pytest -m unit
+
+# Только интеграционные тесты
+poetry run pytest -m integration
+```
 
 ## 📊 Тестовые данные
 

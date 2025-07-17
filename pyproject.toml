@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "logiflow"
+version = "0.1.0"
+description = "Система логистики доставок"
+authors = ["LogiFlow Team"]
+readme = "README.md"
+packages = [{include = "deliveries"}, {include = "users"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "4.2.7"
+djangorestframework = "3.14.0"
+django-cors-headers = "4.3.1"
+psycopg2-binary = "2.9.9"
+python-decouple = "3.8"
+Pillow = "10.2.0"
+django-filter = "23.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+pytest-django = "^4.11.1"
+pytest-cov = "^6.2.1"
+factory-boy = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+test = "pytest:main"
+test-cov = "pytest:main"
+test-fast = "pytest:main"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "delivery_project.test_settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=deliveries",
+    "--cov=users",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80"
+]
+testpaths = ["deliveries", "users"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests"
+]
+
