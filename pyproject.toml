@@ -41,14 +41,25 @@ addopts = [
     "--strict-config",
     "--cov=deliveries",
     "--cov=users",
+    "--cov=orders",
+    "--cov=restaurants",
     "--cov-report=html",
     "--cov-report=term-missing",
     "--cov-fail-under=80"
 ]
-testpaths = ["deliveries", "users"]
+testpaths = ["deliveries", "users", "orders", "restaurants"]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests"
+]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=deliveries",
+    "--cov=users",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80"
 ]
 
