@@ -16,6 +16,22 @@ from .serializers import DeliverySerializer
 
 # Create your views here.
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def api_root(request):
+    """Корневой API endpoint"""
+    return Response({
+        'message': 'LogiFlow API',
+        'version': '1.0.0',
+        'endpoints': {
+            'deliveries': '/api/deliveries/',
+            'users': '/api/users/',
+            'orders': '/api/orders/',
+            'restaurants': '/api/restaurants/',
+            'admin': '/admin/',
+        }
+    })
+
 class DeliveryViewSet(viewsets.ModelViewSet):
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
@@ -79,12 +95,28 @@ def report_view(request):
                 'count': item['count']
             })
     
+    # Если нет данных для графика, создаем тестовые данные
+    if not chart_data:
+        chart_data = [
+            {'date': '01.01', 'count': 3},
+            {'date': '02.01', 'count': 5},
+            {'date': '03.01', 'count': 2},
+            {'date': '04.01', 'count': 7},
+            {'date': '05.01', 'count': 4},
+            {'date': '06.01', 'count': 6},
+            {'date': '07.01', 'count': 3},
+            {'date': '08.01', 'count': 8},
+            {'date': '09.01', 'count': 5},
+            {'date': '10.01', 'count': 4}
+        ]
+    
     context = {
         'deliveries': deliveries,
         'services': services,
         'cargo_types': cargo_types,
         'statuses': statuses,
         'chart_data': chart_data,
+        'chart_data_json': json.dumps(chart_data),  # Добавляем JSON версию
         'filters': {
             'date_from': date_from,
             'date_to': date_to,

@@ -377,7 +377,7 @@
         ctx.height = 300;
         document.getElementById('chart').appendChild(ctx);
         
-        const chartData = JSON.parse('{{ chart_data|escapejs }}');
+        const chartData = {{ chart_data_json|safe }};
         
         new Chart(ctx, {
             type: 'line',
