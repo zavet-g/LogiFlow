@@ -21,11 +21,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копируем код приложения
 COPY . .
 
+# Создаем пользователя для безопасности
+RUN useradd --create-home --shell /bin/bash app && chown -R app:app /app
+
 # Делаем скрипт инициализации исполняемым
 RUN chmod +x docker-init.sh
 
-# Создаем пользователя для безопасности
-RUN useradd --create-home --shell /bin/bash app && chown -R app:app /app
 USER app
 
 # Открываем порт
