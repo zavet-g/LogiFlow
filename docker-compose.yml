@@ -21,6 +21,12 @@ services:
   # Django приложение
   web:
     build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python init_admin.py &&
+             python init_data.py &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
       - static_volume:/app/staticfiles
