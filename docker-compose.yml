@@ -1,35 +1,44 @@
-version: '3.9'
+version: '3.8'
 
 services:
+  # PostgreSQL база данных
   db:
-    image: postgres:15
-    restart: always
+    image: postgres:14
     environment:
-      POSTGRES_DB: logiflow
-      POSTGRES_USER: logiflow
-      POSTGRES_PASSWORD: logiflow
+      POSTGRES_DB: logiflow_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
+  # Django приложение
   web:
     build: .
-    command: poetry run python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
+      - static_volume:/app/staticfiles
     ports:
       - "8000:8000"
-    depends_on:
-      - db
     environment:
-      DJANGO_SETTINGS_MODULE: delivery_project.settings
-      DB_NAME: logiflow
-      DB_USER: logiflow
-      DB_PASSWORD: logiflow
-      DB_HOST: db
-      DB_PORT: 5432
-      PYTHONUNBUFFERED: 1
+      - DEBUG=True
+      - SECRET_KEY=django-insecure-logiflow-secret-key-for-docker-2024
+      - DB_NAME=logiflow_db
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
-  pgdata: 
+  postgres_data:
+  static_volume: 

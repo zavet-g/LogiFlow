@@ -1,30 +1,35 @@
-# Dockerfile для LogiFlow (Django + Poetry)
+# Используем официальный Python образ
 FROM python:3.11-slim
 
-# Установить Poetry
-ENV POETRY_VERSION=1.8.2
-RUN pip install "poetry==$POETRY_VERSION"
-
-# Создать рабочую директорию
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копировать pyproject.toml и poetry.lock для установки зависимостей
-COPY pyproject.toml poetry.lock* ./
+# Устанавливаем системные зависимости
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    netcat-traditional \
+    && rm -rf /var/lib/apt/lists/*
 
-# Установить зависимости (без создания виртуального окружения внутри контейнера)
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+# Копируем файлы зависимостей
+COPY requirements.txt .
+COPY pyproject.toml .
 
-# Копировать проект
+# Устанавливаем Python зависимости
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копируем код приложения
 COPY . .
 
-# Открыть порт
+# Делаем скрипт инициализации исполняемым
+RUN chmod +x docker-init.sh
+
+# Создаем пользователя для безопасности
+RUN useradd --create-home --shell /bin/bash app && chown -R app:app /app
+USER app
+
+# Открываем порт
 EXPOSE 8000
 
-# Переменные окружения для Django
-ENV PYTHONUNBUFFERED=1 \
-    DJANGO_SETTINGS_MODULE=delivery_project.settings \
-    PYTHONDONTWRITEBYTECODE=1
-
-# Команда по умолчанию
-CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"] 
+# Команда для запуска
+CMD ["./docker-init.sh"] 
