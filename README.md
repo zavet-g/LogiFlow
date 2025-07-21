@@ -6,6 +6,8 @@
 
 **Современная система управления доставками с веб-интерфейсом и REST API**
 
+**👨‍💻 Автор:** [Артём Букарев](https://github.com/zavet-g) | [💬 Telegram](https://t.me/bcdbcddd)
+
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Django](https://img.shields.io/badge/Django-4.2.7-green.svg?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
@@ -444,7 +446,33 @@ curl -X POST http://localhost:8000/api/deliveries/ \
 
 ---
 
+## 👨‍💻 Автор проекта
+
 <div align="center">
+
+### 🚀 **Артём Букарев**
+
+**Разработчик и создатель LogiFlow**
+
+[![Author](https://img.shields.io/badge/Author-Артём%20Букарев-blue.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zavet-g)
+[![Telegram](https://img.shields.io/badge/Telegram-@bcdbcddd-blue.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/bcdbcddd)
+[![GitHub](https://img.shields.io/badge/GitHub-zavet--g-black.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zavet-g)
+
+---
+
+### 📞 **Связаться со мной**
+
+[![Contact](https://img.shields.io/badge/💬%20Telegram-@bcdbcddd-blue.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/bcdbcddd)
+[![GitHub Profile](https://img.shields.io/badge/🐙%20GitHub-zavet--g-black.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zavet-g)
+
+**💡 Есть вопросы по проекту? Смело обращайтесь!**
+
+</div>
+
+---
+
+<div align="center">
+
 
 [![Stars](https://img.shields.io/github/stars/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
 [![Forks](https://img.shields.io/github/forks/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
