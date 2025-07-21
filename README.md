@@ -1,22 +1,63 @@
-# 🚚 LogiFlow - Система управления логистикой доставок
+# 🚚 LogiFlow
 
 <div align="center">
 
-![LogiFlow Logo](https://img.shields.io/badge/LogiFlow-Delivery%20Management-blue?style=for-the-badge&logo=delivery)
+## Система управления логистикой доставок
 
-**Современная система управления доставками с веб-интерфейсом и REST API**
+**Современная платформа для управления доставками с веб-интерфейсом, REST API и аналитикой**
 
 **👨‍💻 Автор:** [Артём Букарев](https://github.com/zavet-g) | [💬 Telegram](https://t.me/bcdbcddd)
 
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Django](https://img.shields.io/badge/Django-4.2.7-green.svg?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-blue.svg?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
-[![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![Poetry](https://img.shields.io/badge/Poetry-Dependency%20Manager-orange.svg?style=for-the-badge&logo=poetry&logoColor=white)](https://python-poetry.org)
+---
 
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg?style=for-the-badge)](https://github.com/zavet-g/LogiFlow)
-[![Coverage](https://img.shields.io/badge/Coverage-80%25+-brightgreen.svg?style=for-the-badge)](https://github.com/zavet-g/LogiFlow)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+### 🛠️ Технологический стек
+
+<table>
+<tr>
+<td align="center" width="96">
+  <a href="https://python.org">
+    <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://djangoproject.com">
+    <img src="https://img.shields.io/badge/Django-4.2.7-green?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://postgresql.org">
+    <img src="https://img.shields.io/badge/PostgreSQL-14-blue?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://docker.com">
+    <img src="https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </a>
+</td>
+</tr>
+<tr>
+<td align="center" width="96">
+  <a href="https://python-poetry.org">
+    <img src="https://img.shields.io/badge/Poetry-Dependency%20Manager-orange?style=for-the-badge&logo=poetry&logoColor=white" alt="Poetry" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://github.com/zavet-g/LogiFlow">
+    <img src="https://img.shields.io/badge/Tests-Passing-brightgreen?style=for-the-badge" alt="Tests" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://github.com/zavet-g/LogiFlow">
+    <img src="https://img.shields.io/badge/Coverage-80%25+-brightgreen?style=for-the-badge" alt="Coverage" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" />
+  </a>
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -109,28 +150,117 @@ LogiFlow построен на современной архитектуре с 
 
 ## 🛠️ Технологический стек
 
-### Backend
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![Django](https://img.shields.io/badge/Django-4.2.7-green.svg?style=flat-square&logo=django&logoColor=white)](https://djangoproject.com)
-[![Django REST Framework](https://img.shields.io/badge/DRF-3.14.0-red.svg?style=flat-square&logo=django&logoColor=white)](https://www.django-rest-framework.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-blue.svg?style=flat-square&logo=postgresql&logoColor=white)](https://postgresql.org)
+<div align="center">
 
-### Frontend
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26.svg?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Chart.js](https://img.shields.io/badge/Chart.js-FF6384.svg?style=flat-square&logo=chart.js&logoColor=white)](https://www.chartjs.org/)
+### 🐍 Backend & API
 
-### DevOps & Tools
-[![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
-[![Poetry](https://img.shields.io/badge/Poetry-Dependency%20Manager-orange.svg?style=flat-square&logo=poetry&logoColor=white)](https://python-poetry.org)
-[![Make](https://img.shields.io/badge/Make-Automation-yellow.svg?style=flat-square&logo=gnu&logoColor=white)](https://www.gnu.org/software/make/)
-[![Git](https://img.shields.io/badge/Git-F05032.svg?style=flat-square&logo=git&logoColor=white)](https://git-scm.com/)
+<table>
+<tr>
+<td align="center" width="96">
+  <a href="https://python.org">
+    <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://djangoproject.com">
+    <img src="https://img.shields.io/badge/Django-4.2.7-green?style=for-the-badge&logo=django&logoColor=white" alt="Django" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://www.django-rest-framework.org/">
+    <img src="https://img.shields.io/badge/DRF-3.14.0-red?style=for-the-badge&logo=django&logoColor=white" alt="DRF" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://postgresql.org">
+    <img src="https://img.shields.io/badge/PostgreSQL-14-blue?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  </a>
+</td>
+</tr>
+</table>
 
-### Testing
-[![Pytest](https://img.shields.io/badge/Pytest-0A9EDC.svg?style=flat-square&logo=pytest&logoColor=white)](https://pytest.org/)
-[![Coverage](https://img.shields.io/badge/Coverage-80%25+-brightgreen.svg?style=flat-square)](https://coverage.readthedocs.io/)
-[![Factory Boy](https://img.shields.io/badge/Factory%20Boy-Test%20Data-purple.svg?style=flat-square)](https://factoryboy.readthedocs.io/)
+### 🎨 Frontend & UI
+
+<table>
+<tr>
+<td align="center" width="96">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://www.chartjs.org/">
+    <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=white" alt="Chart.js" />
+  </a>
+</td>
+</tr>
+</table>
+
+### 🚀 DevOps & Tools
+
+<table>
+<tr>
+<td align="center" width="96">
+  <a href="https://docker.com">
+    <img src="https://img.shields.io/badge/Docker-Enabled-blue?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://python-poetry.org">
+    <img src="https://img.shields.io/badge/Poetry-Dependency%20Manager-orange?style=for-the-badge&logo=poetry&logoColor=white" alt="Poetry" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://www.gnu.org/software/make/">
+    <img src="https://img.shields.io/badge/Make-Automation-yellow?style=for-the-badge&logo=gnu&logoColor=white" alt="Make" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://git-scm.com/">
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
+  </a>
+</td>
+</tr>
+</table>
+
+### 🧪 Testing & Quality
+
+<table>
+<tr>
+<td align="center" width="96">
+  <a href="https://pytest.org/">
+    <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" alt="Pytest" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://coverage.readthedocs.io/">
+    <img src="https://img.shields.io/badge/Coverage-80%25+-brightgreen?style=for-the-badge" alt="Coverage" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://factoryboy.readthedocs.io/">
+    <img src="https://img.shields.io/badge/Factory%20Boy-Test%20Data-purple?style=for-the-badge" alt="Factory Boy" />
+  </a>
+</td>
+<td align="center" width="96">
+  <a href="https://github.com/zavet-g/LogiFlow">
+    <img src="https://img.shields.io/badge/Tests-Passing-brightgreen?style=for-the-badge" alt="Tests" />
+  </a>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -465,7 +595,7 @@ curl -X POST http://localhost:8000/api/deliveries/ \
 [![Contact](https://img.shields.io/badge/💬%20Telegram-@bcdbcddd-blue.svg?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/bcdbcddd)
 [![GitHub Profile](https://img.shields.io/badge/🐙%20GitHub-zavet--g-black.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zavet-g)
 
-**💡 Есть вопросы по проекту? Смело обращайтесь!**
+**💡 Есть вопросы по проекту? Напиши в ТГ!**
 
 </div>
 
