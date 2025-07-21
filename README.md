@@ -446,8 +446,6 @@ curl -X POST http://localhost:8000/api/deliveries/ \
 
 <div align="center">
 
-**Сделано с ❤️ командой LogiFlow**
-
 [![Stars](https://img.shields.io/github/stars/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
 [![Forks](https://img.shields.io/github/forks/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
 [![Issues](https://img.shields.io/github/issues/zavet-g/LogiFlow)](https://github.com/zavet-g/LogiFlow/issues)
