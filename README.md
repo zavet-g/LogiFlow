@@ -446,7 +446,6 @@ curl -X POST http://localhost:8000/api/deliveries/ \
 
 <div align="center">
 
-**Сделано с ❤️ командой LogiFlow**
 
 [![Stars](https://img.shields.io/github/stars/your-username/logiflow?style=social)](https://github.com/your-username/logiflow)
 [![Forks](https://img.shields.io/github/forks/your-username/logiflow?style=social)](https://github.com/your-username/logiflow)
