@@ -12,8 +12,8 @@
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
 [![Poetry](https://img.shields.io/badge/Poetry-Dependency%20Manager-orange.svg?style=for-the-badge&logo=poetry&logoColor=white)](https://python-poetry.org)
 
-[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg?style=for-the-badge)](https://github.com/your-username/logiflow)
-[![Coverage](https://img.shields.io/badge/Coverage-80%25+-brightgreen.svg?style=for-the-badge)](https://github.com/your-username/logiflow)
+[![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen.svg?style=for-the-badge)](https://github.com/zavet-g/LogiFlow)
+[![Coverage](https://img.shields.io/badge/Coverage-80%25+-brightgreen.svg?style=for-the-badge)](https://github.com/zavet-g/LogiFlow)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 </div>
@@ -40,8 +40,8 @@
 
 ```bash
 # Клонирование репозитория
-git clone https://github.com/your-username/logiflow.git
-cd logiflow
+git clone https://github.com/zavet-g/LogiFlow.git
+cd LogiFlow
 
 # Установка зависимостей
 make install
@@ -240,8 +240,8 @@ logiflow/
 
 1. **Клонирование репозитория**
    ```bash
-   git clone https://github.com/your-username/logiflow.git
-   cd logiflow
+   git clone https://github.com/zavet-g/LogiFlow.git
+   cd LogiFlow
    ```
 
 2. **Установка зависимостей**
@@ -446,9 +446,10 @@ curl -X POST http://localhost:8000/api/deliveries/ \
 
 <div align="center">
 
+**Сделано с ❤️ командой LogiFlow**
 
-[![Stars](https://img.shields.io/github/stars/your-username/logiflow?style=social)](https://github.com/your-username/logiflow)
-[![Forks](https://img.shields.io/github/forks/your-username/logiflow?style=social)](https://github.com/your-username/logiflow)
-[![Issues](https://img.shields.io/github/issues/your-username/logiflow)](https://github.com/your-username/logiflow/issues)
+[![Stars](https://img.shields.io/github/stars/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
+[![Forks](https://img.shields.io/github/forks/zavet-g/LogiFlow?style=social)](https://github.com/zavet-g/LogiFlow)
+[![Issues](https://img.shields.io/github/issues/zavet-g/LogiFlow)](https://github.com/zavet-g/LogiFlow/issues)
 
 </div> 

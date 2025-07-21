@@ -60,8 +60,8 @@
 
 1. **Клонирование репозитория**
    ```bash
-   git clone https://github.com/your-username/logiflow.git
-   cd logiflow
+   git clone https://github.com/zavet-g/LogiFlow.git
+   cd LogiFlow
    ```
 
 2. **Установка зависимостей**
